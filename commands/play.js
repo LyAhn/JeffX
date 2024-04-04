@@ -6,13 +6,13 @@ module.exports = {
   permissions: "0x0000000000000800",
   options: [
     {
-      name: "normal",
-      description: "Open music from other platforms.",
+      name: "next",
+      description: "Starts playing a track or adds it to the queue.",
       type: ApplicationCommandOptionType.Subcommand,
       options: [
         {
           name: "name",
-          description: "Write your music name.",
+          description: "Song name or link.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -25,7 +25,7 @@ module.exports = {
       options: [
         {
           name: "name",
-          description: "Write the name of the playlist you want to create.",
+          description: "Write the name of the new playlist.",
           type: ApplicationCommandOptionType.String,
           required: true
         }
@@ -118,7 +118,7 @@ module.exports = {
         }
       }
 
-      if (stp === "normal") {
+      if (stp === "next") {
         const name = interaction.options.getString('name')
         if (!name) return interaction.reply({ content: lang.msg59, ephemeral: true }).catch(e => { })
 
